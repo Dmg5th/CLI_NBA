@@ -1,0 +1,23 @@
+Basketball App with NBA API
+
+//Welcome the User ask for name 
+- User inputs his/her name
+// Welcomes User by name and shows a list of NBA teams and asks the User to pick his/her favorite team
+- Gets favorite team from User 
+//Shows Standings for that team and the players
+//Asks user to pick a player 
+- User picks player 
+// Shows Stats for that particular player 
+
+
+CLASSES NEEDED
+
+-CLI Class- Terminal input and output  
+-API Class- To deal with the API
+-Team Class- to showcase the Team 
+- Player Class- to list players on that team and their stats 
+
+git add .
+git commit -m ""
+
+chmod +x run (folder)
