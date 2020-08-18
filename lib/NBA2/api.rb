@@ -16,7 +16,7 @@ class Api
     
         hash = JSON.parse response.read_body()
     
-        hash["api"]["teams"].each { |team| Team.new(team["fullName"]) }
+        hash["api"]["teams"].each { |team| Team.new(team["fullName"]) unless team["fullName"].empty? }
     end 
 
     def self.get_players(team)
@@ -33,7 +33,8 @@ class Api
         response = http.request(request)
         
         hash = JSON.parse response.read_body()
-        hash["api"]["players"].each { |player| puts "#{player["firstName"]}#{player["lastName"]}"}
+        hash["api"]["players"].each { |player| Player.new(player["firstName"], player["lastName"]) }                
+        # puts "#{player["firstName"]} #{player["lastName"]}"}
     end 
 
     def self.get_stats(player)
