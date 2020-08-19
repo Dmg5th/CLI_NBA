@@ -2,4 +2,18 @@
 
 require './lib/environment'
 
-Cli.new.start 
+
+
+Cli.new.start
+
+Cli.new.display_team
+
+while Player.all.empty?
+    "There is currently no information for this team, please pick another."
+
+Cli.new.pick_team
+puts Player.all.count 
+end 
+
+puts "Great pick! Here's the current standing and roster for that team:"
+Cli.new.get_player_attributes

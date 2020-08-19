@@ -15,7 +15,8 @@ CLASSES NEEDED
 -CLI Class- Terminal input and output  
 -API Class- To deal with the API
 -Team Class- to showcase the Team 
-- Player Class- to list players on that team and their stats 
+-Player Class- to list players on that team and their stats 
+-Stats Class 
 
 git add .
 git commit -m ""
