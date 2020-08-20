@@ -21,7 +21,7 @@ class Player
 
     def print_info
         if @dob.empty? && @height.empty? && @origin.empty?
-        puts "There is currently no additional information for #{@name} #{@last_name}."
+            puts "There is currently no additional information for #{@name} #{@last_name}."
 
         elsif @origin.empty?
             puts "Origin unknown, #{@name} #{@last_name} is #{@height} meters tall, and was born #{@dob}"
