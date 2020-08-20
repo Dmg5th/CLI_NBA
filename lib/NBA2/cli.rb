@@ -1,6 +1,6 @@
 class Cli
     
-    #Welcomes user to app, and 
+    #Welcomes user to app and calls the Api class method
     
     def start
         puts "Welcome to the NBA app!" 
@@ -14,15 +14,18 @@ class Cli
         Api.get_teams 
     end 
         
-    # Displays the available teams to get info from by iterating over the Team 
+    # Displays the available teams to get info from by iterating over the Team.all class variable
+    
     def display_team 
         Team.all.each.with_index(1) { |team, index| puts "#{index}. #{team.name}"}
     end 
+
+    #
         
     def pick_team 
         team = gets.chomp 
         Api.get_players(team)
-        puts "Please pick the team you'd like to select to see their standings and current roster. "
+        puts "Please pick the team you'd like to select to see their current roster. "
         Player.all.each.with_index(1) { |player, index| puts "#{index}. #{player.name} #{player.last_name}"}
     end 
 
