@@ -13,6 +13,8 @@ class Cli
         self.pick_team
         end 
 
+        self.display_roster
+
         self.get_player_attributes
 
         self.final_statement
@@ -52,10 +54,13 @@ class Cli
         else  
         Api.get_players(team)
         puts "Please pick the team you'd like to select to see their current roster. "
+        end 
+    end 
+    
+    def display_roster
         Player.all.each.with_index(1) { |player, index| puts "#{index}. #{player.name} #{player.last_name}"}
         puts ""
-        puts "Great pick! Above is the current roster for that team."
-        end 
+        puts "Above is the current roster for that team."
     end 
 
     def get_player_attributes
@@ -76,10 +81,15 @@ class Cli
     def final_statement
         puts ""
         puts ""
-        puts "Thanks for using the NBA app! The program will run again if you'd like to keep going!"
-        puts ""
-        puts ""
-        self.start 
+        puts "Thanks for using the NBA app! If you'd like to run it again press 'Y'. If you'd like to exit type 'N'."
+        input = gets.chomp.capitalize 
+        if input != "Y" && input != "N"
+            puts "That was not a valid entry."
+        elsif input == "Y"
+            self.start
+        else input == "N"
+            exit 
+        end 
     end 
 
 end 
