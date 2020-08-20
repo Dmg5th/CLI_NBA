@@ -7,12 +7,8 @@ class Cli
         
         self.display_team
 
-        while Player.all.empty?
-        puts "There is currently no information for this team, please pick another."
-
         self.pick_team
-        end 
-
+        
         self.display_roster
 
         self.get_player_attributes
@@ -51,8 +47,13 @@ class Cli
         team = gets.chomp.to_i 
         if team > 51  || team <= 0 || !(team.is_a? Integer)   
             puts "This is not valid selection, please pick a team by their corresponding number."
+            self.pick_team
         else  
         Api.get_players(team)
+        if Player.all.empty?
+            puts "There is currently no information for this team, please pick another."
+            self.pick_team
+        end 
         puts "Please pick the team you'd like to select to see their current roster. "
         end 
     end 
@@ -70,11 +71,14 @@ class Cli
         puts ""
         puts "Here's that players main attributes:"
         puts ""
+        if index > Player.all.length || index <= 0 || !(index.is_a? Integer)   
+            puts "This is not valid selection, please pick a player by their corresponding number."
+            self.get_player_attributes 
+        end 
+        # The index is at -1 because I display it at 1
         player = Player.all[index - 1 ]
-        if player.nil?
-            puts "There are currently no attributes for this player."
-        else
-            player.print_info
+        unless player.nil? 
+        player.print_info
         end 
     end 
 
@@ -85,7 +89,10 @@ class Cli
         input = gets.chomp.capitalize 
         if input != "Y" && input != "N"
             puts "That was not a valid entry."
+            self.final_statement
         elsif input == "Y"
+            Team.all.clear 
+            Player.all.clear 
             self.start
         else input == "N"
             exit 

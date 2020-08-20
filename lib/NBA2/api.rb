@@ -34,10 +34,10 @@ class Api
         
         hash = JSON.parse response.read_body()
         hash["api"]["players"].each do |player| 
-        Player.new(player["firstName"], player["lastName"], player["playerId"], player["country"], player["heightInMeters"], player["dateOfBirth"])  
+            Player.new(player["firstName"], player["lastName"], player["playerId"], player["country"], player["heightInMeters"], player["dateOfBirth"])  
         end 
-        # binding.pry               
-       
+        
+        
     end 
 
     

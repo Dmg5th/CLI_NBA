@@ -16,7 +16,7 @@ class Player
     end 
 
     def self.all
-        @@all 
+        @@all
     end 
 
     def print_info
