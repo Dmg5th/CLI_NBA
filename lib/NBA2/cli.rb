@@ -63,7 +63,7 @@ class Cli
     def display_roster
         Player.all.each.with_index(1) { |player, index| puts "#{index}. #{player.name} #{player.last_name}"}
         puts ""
-        puts "Above is the current roster for that team."
+        puts "Above is the entire roster for that team."
     end 
 
     # This method will prompt the user to select a player by their corresponding number, and then reveal that players attributes after he is chosen. 
