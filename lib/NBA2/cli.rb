@@ -57,12 +57,16 @@ class Cli
         puts "Please select the team by their number you'd to see their current roster. "
         end 
     end 
+
+    # This method will display the current roster for whatever team the user chose
     
     def display_roster
         Player.all.each.with_index(1) { |player, index| puts "#{index}. #{player.name} #{player.last_name}"}
         puts ""
         puts "Above is the current roster for that team."
     end 
+
+    # This method will prompt the user to select a player by their corresponding number, and then reveal that players attributes after he is chosen. 
 
     def get_player_attributes
         puts "Please select a player by their number to see their current stats."
@@ -81,6 +85,8 @@ class Cli
         player.print_info
         end 
     end 
+
+    # This method will ask the user whether he/she would like to exit the program or run it again. 
 
     def final_statement
         puts ""
