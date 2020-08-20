@@ -54,7 +54,7 @@ class Cli
             puts "There is currently no information for this team, please pick another."
             self.pick_team
         end 
-        puts "Please pick the team you'd like to select to see their current roster. "
+        puts "Please select the team by their number you'd to see their current roster. "
         end 
     end 
     
