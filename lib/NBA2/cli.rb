@@ -1,15 +1,38 @@
 class Cli
     
-    #Welcomes user to app and calls the Api class method
+    # Starts the program and calls on all the methods for the entire app
     
-    def start
+    def start 
+        self.welcome_user
+        
+        self.display_team
+
+        while Player.all.empty?
+        puts "There is currently no information for this team, please pick another."
+
+        self.pick_team
+        end 
+
+        self.get_player_attributes
+
+        self.final_statement
+    end 
+        
+    #Welcomes user to app and calls the Api class method
+      
+        
+    def welcome_user
         puts "Welcome to the NBA app!" 
+        puts ""
         puts "Please enter your name"
         name = gets.chomp 
         if name.empty?
+            puts ""
             puts "Whattup! Here's a list of the current NBA teams:"
-        else 
+        else
+            puts ""
             puts "Whattup #{name}! Here's a list of the current NBA teams: "
+            puts ""
         end 
         Api.get_teams 
     end 
@@ -27,10 +50,13 @@ class Cli
         Api.get_players(team)
         puts "Please pick the team you'd like to select to see their current roster. "
         Player.all.each.with_index(1) { |player, index| puts "#{index}. #{player.name} #{player.last_name}"}
+        puts ""
+        puts "Great pick! Above is the current roster for that team."
     end 
 
     def get_player_attributes
         puts "Please select a player by their number to see their current stats."
+        puts ""
         index = gets.chomp.to_i 
         puts ""
         puts "Here's that players main attributes:"
@@ -45,6 +71,8 @@ class Cli
 
     def final_statement
         puts ""
+        puts ""
+        puts ""
         puts "Thanks for using the NBA app! The program will run again if you'd like to keep going!"
         puts ""
         puts ""
@@ -54,5 +82,3 @@ class Cli
 end 
 
 
-# Player.all.each.with_index(1) { |player, index| puts "#{index}. #{player.height}" }
-        # Player.all.each.with_index(1) { |stat, index| puts "#{index}. #{stat.name}"}
