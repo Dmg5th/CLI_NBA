@@ -27,12 +27,12 @@ class Cli
         puts "Please enter your name"
         name = gets.chomp 
         if name.empty?
-            puts ""
-            puts "Whattup! Here's a list of the current NBA teams:"
+          puts ""
+          puts "Whattup! Here's a list of the current NBA teams:"
         else
-            puts ""
-            puts "Whattup #{name}! Here's a list of the current NBA teams: "
-            puts ""
+          puts ""
+          puts "Whattup #{name}! Here's a list of the current NBA teams: "
+          puts ""
         end 
         Api.get_teams 
     end 
@@ -43,10 +43,13 @@ class Cli
         Team.all.each.with_index(1) { |team, index| puts "#{index}. #{team.name}"}
     end 
 
-    #
+    # This method allows the user to pick a team of their choice. 
         
     def pick_team 
-        team = gets.chomp 
+        team = gets.chomp.to_i 
+        if team > 51  || team <= 0
+            puts "This is not valid selection, please pick a team by their corresponding number."
+        end 
         Api.get_players(team)
         puts "Please pick the team you'd like to select to see their current roster. "
         Player.all.each.with_index(1) { |player, index| puts "#{index}. #{player.name} #{player.last_name}"}
@@ -70,7 +73,6 @@ class Cli
     end 
 
     def final_statement
-        puts ""
         puts ""
         puts ""
         puts "Thanks for using the NBA app! The program will run again if you'd like to keep going!"
