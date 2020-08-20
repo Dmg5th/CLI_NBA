@@ -47,14 +47,15 @@ class Cli
         
     def pick_team 
         team = gets.chomp.to_i 
-        if team > 51  || team <= 0
+        if team > 51  || team <= 0 || !(team.is_a? Integer)   
             puts "This is not valid selection, please pick a team by their corresponding number."
-        end 
+        else  
         Api.get_players(team)
         puts "Please pick the team you'd like to select to see their current roster. "
         Player.all.each.with_index(1) { |player, index| puts "#{index}. #{player.name} #{player.last_name}"}
         puts ""
         puts "Great pick! Above is the current roster for that team."
+        end 
     end 
 
     def get_player_attributes
