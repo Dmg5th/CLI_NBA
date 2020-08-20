@@ -3,17 +3,17 @@ class Cli
     # Starts the program and calls on all the methods for the entire app
     
     def start 
-        self.welcome_user
+        welcome_user
         
-        self.display_team
+        display_team
 
-        self.pick_team
+        pick_team
         
-        self.display_roster
+        display_roster
 
-        self.get_player_attributes
+        get_player_attributes
 
-        self.final_statement
+        final_statement
     end 
         
     #Welcomes user to app and calls the Api class method
@@ -79,7 +79,7 @@ class Cli
             puts "This is not valid selection, please pick a player by their corresponding number."
             self.get_player_attributes 
         end 
-        # The index is at -1 because I display it at 1
+        # The index is at -1 because I display starting at 1
         player = Player.all[index - 1 ]
         unless player.nil? 
         player.print_info
@@ -99,7 +99,7 @@ class Cli
         elsif input == "Y"
             Team.all.clear 
             Player.all.clear 
-            self.start
+            start
         else input == "N"
             exit 
         end 

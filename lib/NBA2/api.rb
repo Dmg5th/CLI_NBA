@@ -1,6 +1,6 @@
 require 'pry'
 class Api
-    # 
+    
     def self.get_teams
         url = URI("https://api-nba-v1.p.rapidapi.com/teams/league/standard")
 
