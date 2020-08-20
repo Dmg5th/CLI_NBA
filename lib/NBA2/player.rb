@@ -1,14 +1,13 @@
 class Player 
 
-    attr_accessor :name, :last_name, :player_id, :origin, :height, :dob 
+    attr_accessor :name, :last_name, :origin, :height, :dob 
 
     @@all = []
     # binding.pry 
     
-    def initialize(name, last_name, player_id, origin, height, dob)
+    def initialize(name, last_name, origin, height, dob)
         @name = name 
         @last_name = last_name 
-        @player_id = player_id 
         @origin = origin 
         @height = height 
         @dob = dob 
