@@ -32,13 +32,23 @@ class Cli
     def get_player_attributes
         puts "Please select a player by their number to see their current stats."
         index = gets.chomp.to_i 
+        puts ""
         puts "Here's that players main attributes:"
+        puts ""
         player = Player.all[index - 1 ]
         if player.nil?
-            puts "There are currenlty no attributes for this player."
+            puts "There are currently no attributes for this player."
         else
             player.print_info
         end 
+    end 
+
+    def final_statement
+        puts ""
+        puts "Thanks for using the NBA app! The program will run again if you'd like to keep going!"
+        puts ""
+        puts ""
+        self.start 
     end 
 
 end 
