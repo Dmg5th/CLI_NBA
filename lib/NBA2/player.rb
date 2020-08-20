@@ -27,13 +27,13 @@ class Player
             puts "Origin unknown, #{@name} #{last_name} is #{@height} meters tall, and was born #{@dob}"
        
         elsif @height.empty?
-            puts "#{@name} #{last_name} origin is #{@origin}, and was born #{@dob}"
+            puts "#{@name} #{last_name}'s' origin is #{@origin}, and was born #{@dob}"
       
         elsif @dob.empty?
-            puts "#{@name} #{last_name} origin is #{@origin} and is #{@height} meters tall."
+            puts "#{@name} #{last_name}'s' origin is #{@origin} and is #{@height} meters tall."
         
         else 
-        puts "#{@name} #{last_name} origin is #{@origin} and is #{@height} meters tall, and was born #{@dob}"
+        puts "#{@name} #{last_name}'s' origin is #{@origin}, is #{@height} meters tall, and was born #{@dob}"
     
         end 
     end 
