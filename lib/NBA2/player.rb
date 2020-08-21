@@ -9,9 +9,10 @@ class Player
         @name = name 
         @last_name = last_name 
         @origin = origin 
-        @height = height 
+        @height = height
         @dob = dob 
         @@all << self 
+         # height = height.to_f/ 0.3048
     end 
 
     def self.all
@@ -19,6 +20,7 @@ class Player
     end 
 
     def print_info
+       
         if @dob.empty? && @height.empty? && @origin.empty?
             puts "There is currently no additional information for #{@name} #{@last_name}."
 
