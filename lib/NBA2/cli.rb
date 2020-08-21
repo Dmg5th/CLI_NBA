@@ -20,7 +20,7 @@ class Cli
       
         
     def welcome_user
-        puts "Welcome to the NBA app!" 
+        puts "🏀🏀Welcome to the NBA app!🏀🏀" 
         puts ""
         puts "Please enter your name"
         name = gets.chomp 
@@ -29,7 +29,7 @@ class Cli
           puts "Whattup! Here's a list of the current NBA teams:"
         else
           puts ""
-          puts "Whattup #{name}! Here's a list of the current NBA teams: "
+          puts "Whattup #{name}❗️Here's a list of the current NBA teams:⛹ "
           puts ""
         end 
         Api.get_teams 
@@ -56,7 +56,6 @@ class Cli
             puts "There is currently no information for this team, please pick another."
             pick_team
         end 
-        # team_name = team.to_s
         puts "Here is the entire roster."
         puts ""
         end 
@@ -93,7 +92,7 @@ class Cli
     def final_statement
         puts ""
         puts ""
-        puts "Thanks for using the NBA app! If you'd like to run it again press 'Y'. If you'd like to exit type 'N'."
+        puts "🏀🏀Thanks for using the NBA app! If you'd like to run it again press 'Y'. If you'd like to exit type 'N'.🏀🏀"
         input = gets.chomp.capitalize 
         if input != "Y" && input != "N"
             puts "That was not a valid entry."

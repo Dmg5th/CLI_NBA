@@ -12,7 +12,6 @@ class Player
         @height = height
         @dob = dob 
         @@all << self 
-         # height = height.to_f/ 0.3048
     end 
 
     def self.all
@@ -37,6 +36,7 @@ class Player
     
         end 
     end 
+    
     
 
 
