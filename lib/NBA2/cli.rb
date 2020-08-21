@@ -44,17 +44,21 @@ class Cli
     # This method allows the user to pick a team of their choice. 
         
     def pick_team 
+        puts "Please select the team by their number if you'd like to see their entire roster for the last three seasons. "
+        puts ""
         team = gets.chomp.to_i 
         if team > 51  || team <= 0 || !(team.is_a? Integer)   
             puts "This is not valid selection, please pick a team by their corresponding number."
-            self.pick_team
+            pick_team
         else  
         Api.get_players(team)
         if Player.all.empty?
             puts "There is currently no information for this team, please pick another."
             pick_team
         end 
-        puts "Please select the team by their number you'd to see their current roster. "
+        # team_name = team.to_s
+        puts "Here is the entire roster."
+        puts ""
         end 
     end 
 
@@ -62,8 +66,6 @@ class Cli
     
     def display_roster
         Player.all.each.with_index(1) { |player, index| puts "#{index}. #{player.name} #{player.last_name}"}
-        puts ""
-        puts "Above is the entire roster for that team."
     end 
 
     # This method will prompt the user to select a player by their corresponding number, and then reveal that players attributes after he is chosen. 
